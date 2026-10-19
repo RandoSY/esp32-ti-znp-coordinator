@@ -8,13 +8,7 @@ A WeAct ESP32-C6 presents a CC2652P-style TI ZNP serial interface to the unmodif
 
 **The central result: Zigbee2MQTT operates through our emulated TI dongle.** A real Tuya door/window sensor pairs with the ESP32-C6. Our firmware translates the host's TI ZNP requests into Espressif Zigbee operations and returns TI-format events, including incoming sensor data. Unmodified Zigbee2MQTT uses its normal `zstack` driver, interviews the device, converts IAS reports into contact states, publishes MQTT and updates its web interface.
 
-```mermaid
-flowchart LR
-    sensor["Tuya UZ-6D / Wing TS0203"] <-->|"Real Zigbee RF"| esp["ESP32-C6 native Zigbee stack"]
-    esp <-->|"Emulated TI ZNP over USB serial"| z2m["Unmodified Zigbee2MQTT: zstack"]
-    z2m --> mqtt["Mosquitto MQTT"]
-    z2m --> ui["Zigbee2MQTT web interface"]
-```
+**Signal path:** Tuya sensor ⇄ Zigbee RF ⇄ ESP32-C6 ⇄ TI ZNP over USB ⇄ Zigbee2MQTT. Zigbee2MQTT publishes to Mosquitto MQTT and updates its web interface.
 
 ![Live Zigbee2MQTT showing UZ-6D contact reports through the ESP32-C6 TI ZNP dongle emulator](docs/assets/zigbee2mqtt-esp32c6-live.png)
 
