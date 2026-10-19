@@ -4,6 +4,8 @@ This repository contains source, utilities and engineering evidence summaries. I
 
 **Firmware workflow: Arduino IDE.** Clone the repository or use GitHub's **Code -> Download ZIP**, then open `Arduino/TI_ZNP_ESP32_RealBridge/TI_ZNP_ESP32_RealBridge.ino` and follow [Arduino setup](ARDUINO_SETUP.md). Keep the companion source files in that sketch folder. Python is used by the optional utilities/tests below; Arduino CLI is optional automation for the same IDE-compatible sketch.
 
+For the complete board-to-first-sensor sequence, follow [Getting Started: first-time setup](START_HERE.md#first-time-setup-new-board-and-new-network). It includes Arduino installation/settings, upload, serial checks, the pinned host installation, new-network configuration, pairing and shutdown. The commands below are a compact developer reference.
+
 ```text
 git clone https://github.com/RandoSY/esp32-ti-znp-coordinator.git
 cd esp32-ti-znp-coordinator

@@ -8,10 +8,11 @@ Pin **Arduino-ESP32 3.3.11**, including its SDK libraries. Open `Arduino/TI_ZNP_
 |---|---|
 | Board | ESP32C6 Dev Module, physical WeAct ESP32-C6FH4 |
 | Zigbee mode | ZCZR (coordinator/router) |
-| Partition scheme | Zigbee ZCZR |
+| Partition scheme | Zigbee ZCZR 4MB with spiffs |
 | Flash size | 4 MB |
 | USB CDC On Boot | Enabled for native USB |
 | Core debug level | None; binary serial must remain free of logging |
+| Erase All Flash Before Sketch Upload | Disabled; keep saved network storage |
 | Port | COM17 on this Windows host |
 | RGB | WS2812 GPIO8, low brightness |
 

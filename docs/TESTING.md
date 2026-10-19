@@ -100,6 +100,8 @@ A diagnostic such as `0x030B0102` identifies phase 3 (cluster registration), end
 
 ## 6. Test with Zigbee2MQTT
 
+For a fresh public clone and a new, unconfigured coordinator, use [Getting Started's complete host/configuration procedure](START_HERE.md#first-time-setup-new-board-and-new-network). The generator below requires an existing private `lab-network.json`, which is deliberately excluded from GitHub; it is not the first-start path for a new board. Never replace an existing network's saved settings with generated identities or keys.
+
 Exit the Python utility. Use a dedicated Zigbee2MQTT data directory with `serial.adapter: zstack`, 115200 baud and `rtscts: false`. To preserve the already tested lab network, generate a configuration using its local, private network file:
 
 ```bash
