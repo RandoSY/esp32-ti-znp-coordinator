@@ -1,0 +1,37 @@
+{
+  "provenance": "Synthetic fixed TI MT-layout fixtures independently checked against installed herdsman 10.10.0 definition.js; all addresses/payloads synthetic. EXT is host-fixture-only, not firmware support.",
+  "standard_lqi_payload_offset": 9,
+  "extended_lqi_payload_offset": 18,
+  "cases": [
+    {
+      "command": "incomingMsg",
+      "lqi": 0,
+      "hex": "fe14448134120005efbe030b010001123456780103094200ea"
+    },
+    {
+      "command": "incomingMsg",
+      "lqi": 173,
+      "hex": "fe14448134120005efbe030b01ad0112345678010309420047"
+    },
+    {
+      "command": "incomingMsg",
+      "lqi": 255,
+      "hex": "fe14448134120005efbe030b01ff0112345678010309420015"
+    },
+    {
+      "command": "incomingMsgExt",
+      "lqi": 0,
+      "hex": "fe1e44823412000502efbe00000000000003cdab0b0100011234567801030009420087"
+    },
+    {
+      "command": "incomingMsgExt",
+      "lqi": 173,
+      "hex": "fe1e44823412000502efbe00000000000003cdab0b01ad01123456780103000942002a"
+    },
+    {
+      "command": "incomingMsgExt",
+      "lqi": 255,
+      "hex": "fe1e44823412000502efbe00000000000003cdab0b01ff011234567801030009420078"
+    }
+  ]
+}

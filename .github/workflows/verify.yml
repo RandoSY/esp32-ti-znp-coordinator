@@ -1,0 +1,40 @@
+name: Verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python tests/run_native.py
+      - name: Optional diagnostic code (native only)
+        run: |
+          src=Arduino/TI_ZNP_ESP32_RealBridge
+          g++ -std=c++17 -Wall -Wextra -Werror -pedantic -pthread -fsanitize=address,undefined -fno-omit-frame-pointer -DZNP_LQI_DIAGNOSTICS=1 -I "$src" "$src/ZnpFrame.cpp" "$src/ZnpBridge.cpp" "$src/ZnpNv.cpp" "$src/LqiDiagnostics.cpp" tests/test_lqi_diagnostics.cpp -o build/native/test_lqi_diagnostics
+          build/native/test_lqi_diagnostics
+  firmware:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        chip: [esp32c6, esp32h2]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: arduino/setup-arduino-cli@19d8c6573d662087023edf1a188933864d001e35
+        with:
+          version: '1.4.1'
+      - run: arduino-cli core install esp32:esp32@3.3.11 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+      - run: python tools/build_firmware.py --chip ${{ matrix.chip }} --transport native --flash-mb 4 --jobs 2

@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-18",
+  "scope": "C6 LQI provenance and independent serial-decoder correction; not full TI equivalence/certification",
+  "sdk": {
+    "arduino_esp32": "3.3.11",
+    "esp_idf": "5.5.5",
+    "esp_zigbee_lib": "1.6.8",
+    "esp_zboss_lib": "1.6.4"
+  },
+  "host": {
+    "zigbee2mqtt": "2.14.2",
+    "herdsman": "10.10.0",
+    "mosquitto": "2.1.2"
+  },
+  "lqi": {
+    "near": {
+      "records": 22,
+      "range": [
+        81,
+        209
+      ],
+      "zeros": 0
+    },
+    "bathroom": {
+      "records": 21,
+      "histogram": {
+        "0": 11,
+        "5": 4,
+        "10": 2,
+        "15": 4
+      }
+    },
+    "return_near": {
+      "records": 20,
+      "range": [
+        173,
+        209
+      ],
+      "zeros": 0
+    },
+    "all_63_raw_bridge_encoded_mqtt_values_equal": true,
+    "negative_inputs": 0,
+    "queue_drops": 0,
+    "ring_overwrites": 0,
+    "rssi_available": false,
+    "sdk_validity_flag_available": false,
+    "origin": "SDK APS raw field",
+    "underlying_rf_vs_sdk_semantics": "UNDETERMINED",
+    "physical_loss_duplicate_latency_rate": "NOT CERTIFIED; action timestamps absent"
+  },
+  "checksum": {
+    "before": "FAIL: expected 2 frames, actual 1 at valid FCS FE",
+    "after_256_valid_fcs_values": "PASS",
+    "corrupt_timeout_and_max_payload_recovery": "PASS",
+    "c6_live_boundary_without_retry": "PASS",
+    "default_diagnostics": false,
+    "current_c6_application_sha256": "23e0de9c8bbfa5cadecea8fa114697d1ea193fc42b59a6e2eb9757dccd8fac42",
+    "outside_app0_unchanged": "PASS",
+    "host_resumed_existing_network": "PASS",
+    "sensor_smoke": {
+      "operator_cycles": 3,
+      "expected_reports": 6,
+      "observed_states": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "lqi": [
+        188,
+        168,
+        173,
+        173,
+        183,
+        163
+      ],
+      "result": "PASS"
+    }
+  },
+  "tests": {
+    "native_protocol": 20,
+    "nv_checks": 12,
+    "lqi_cases": 45,
+    "valid_fcs_boundaries": 256,
+    "python_tests": 17,
+    "native_aps": "PASS",
+    "simulated_herdsman_11_1_0_reset_resume": "PASS",
+    "installed_parser_adapter_publisher": "PASS",
+    "C6_compile": "PASS",
+    "H2_compile": "PASS",
+    "H2_hardware": "NOT RUN",
+    "fresh_battery_rf_in_corrected_run": "NOT RUN",
+    "long_duration_stress": "NOT RUN",
+    "runtime_heap_stack_latency": "NOT RUN"
+  },
+  "resources": {
+    "C6_corrected_off": {
+      "sketch": 727602,
+      "static_ram": 40492,
+      "sketch_delta_baseline": 4,
+      "static_ram_delta_baseline": 0
+    },
+    "H2_corrected_off": {
+      "sketch": 732717,
+      "static_ram": 38996
+    }
+  },
+  "private_evidence": "Raw flash, host data and captures remain in ignored local artifacts; only aggregate evidence is published."
+}

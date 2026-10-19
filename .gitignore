@@ -1,0 +1,26 @@
+# Generated builds, local hardware evidence and lab network credentials
+build/
+artifacts/
+00/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.jsonl
+*.zip
+node_modules/
+lab-zigbee2mqtt/
+.env
+*.log
+tests/test_bridge
+tests/test_nv
+tests/znp_native_peer
+
+# Local session instructions, reference bundles and personal screenshots
+restart.txt
+ti-ref-docs/
+docs/Screenshot*.png
+*.bin
+*.elf
+*.map
+*.exe
