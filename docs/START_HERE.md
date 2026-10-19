@@ -139,7 +139,7 @@ pnpm start
 
 In the Zigbee2MQTT web UI, enable **Permit join**, put a **new test device** into its manufacturer's pairing mode and wait for a successful interview/configuration. Close joining afterward. Already paired sensors do not need this step. Cyan means joining is open; green means ready; white flashes mark received application data.
 
-For the tested UZ-6D door contact, open/close the magnet. **Success:** the UI/MQTT changes between `contact: false` (open) and `contact: true` (closed), and activity flashes white. Rename it `UZ-6D_Door` if you want the topic/utility defaults used in our lab. Then a Mosquitto client on PATH can watch it without taking the serial port:
+For the tested [UZ-6D / Wing TS0203 door contact](TEST_SENSOR.md), open/close the magnet. **Success:** the UI/MQTT changes between `contact: false` (open) and `contact: true` (closed), and activity flashes white. Rename it `UZ-6D_Door` if you want the topic/utility defaults used in our lab. Then a Mosquitto client on PATH can watch it without taking the serial port:
 
 ```text
 mosquitto_sub -h 127.0.0.1 -p 1883 -t esp32_znp_lab/UZ-6D_Door
