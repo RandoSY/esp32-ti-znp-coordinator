@@ -40,6 +40,7 @@ The LQI investigation correlated **63 live SDK/bridge/encoded/MQTT values**, inc
 - [Installed Windows software, services, start/stop and VM handoff](docs/INSTALLED_SOFTWARE.md)
 - [Build and developer checks](docs/BUILDING.md)
 - [Ubuntu / VirtualBox USB setup](docs/VM_USB_ZIGBEE2MQTT.md)
+- [Ubuntu 26.04.1 native Home Assistant, Mosquitto and Zigbee2MQTT installation](docs/UBUNTU_NATIVE_HOME_ASSISTANT.md) — no Docker/VM; native Core installation has upstream support limitations.
 - [Serial compatibility](docs/SERIAL_COMPATIBILITY.md) and [RF evidence](docs/RF_ACCEPTANCE.md)
 - [Source architecture](docs/ARCHITECTURE.md)
 
