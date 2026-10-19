@@ -2,6 +2,8 @@
 
 [![Verify](https://github.com/RandoSY/esp32-ti-znp-coordinator/actions/workflows/verify.yml/badge.svg)](https://github.com/RandoSY/esp32-ti-znp-coordinator/actions/workflows/verify.yml)
 
+**Status: BETA, with successful tests.** Automated protocol/Python tests, ESP32-C6/H2 builds, and the C6 checksum-boundary and paired-sensor hardware tests have passed. Broader device coverage, sustained reliability testing and H2 radio testing remain unfinished. See the [validation report](docs/LQI_Validation_Report.md) for measured results and tests not yet run.
+
 A WeAct ESP32-C6 presents a CC2652P-style TI ZNP serial interface to the unmodified Zigbee2MQTT `zstack` driver, while its own native Zigbee radio handles real devices. ESP32-H2 is also a build target.
 
 ![WeAct Studio ESP32-C6-MINI target development board](docs/assets/weact-esp32c6-mini.png)
