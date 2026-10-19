@@ -1,5 +1,7 @@
 # Arduino firmware setup
 
+Arduino IDE is the intended primary firmware workflow. The project deliberately uses a standard multi-file Arduino sketch for a simple, familiar setup and reuse across compatible C6/H2 boards. Arduino CLI and CI automate that same sketch; they are optional for IDE users.
+
 Pin **Arduino-ESP32 3.3.11**, including its SDK libraries. Open `Arduino/TI_ZNP_ESP32_RealBridge/TI_ZNP_ESP32_RealBridge.ino`; keep companion C++ files in the sketch directory.
 
 | Setting | Tested C6 value |
@@ -15,7 +17,7 @@ Pin **Arduino-ESP32 3.3.11**, including its SDK libraries. Open `Arduino/TI_ZNP_
 
 For UART0 through an external communication chip, disable CDC on boot and use the actual serial connector. Match flash capacity to the board. H2 builds use ZCZR; its RGB defaults disabled until the board's pin is supplied.
 
-The [build helper](BUILDING.md) records FQBN and image hashes. Both targets compile with the pinned core. C6: 727598 bytes sketch, 40492 bytes static RAM. H2: 732713 bytes sketch, 38996 bytes static RAM. Only C6 has physical acceptance here.
+The optional [build helper](BUILDING.md) records FQBN and image hashes. Both corrected targets compile with the pinned core. C6: 727602 bytes sketch, 40492 bytes static RAM. H2: 732717 bytes sketch, 38996 bytes static RAM. Only C6 has physical acceptance here.
 
 The C6 was fully erased for initial programming. Later app-only updates preserved the paired network. New boards need the generated bootloader, partition table and application at their correct offsets; use Arduino Upload or generated flash arguments. Do not erase a paired board unless intentionally resetting its network.
 

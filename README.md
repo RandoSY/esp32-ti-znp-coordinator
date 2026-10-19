@@ -6,6 +6,8 @@
 
 A WeAct ESP32-C6 presents a CC2652P-style TI ZNP serial interface to the unmodified Zigbee2MQTT `zstack` driver, while its own native Zigbee radio handles real devices. ESP32-H2 is also a build target.
 
+**Arduino IDE by design.** The firmware is a standard multi-file Arduino sketch, intentionally organized for simplicity and reuse across compatible ESP32-C6/H2 boards. Open [TI_ZNP_ESP32_RealBridge.ino](Arduino/TI_ZNP_ESP32_RealBridge/TI_ZNP_ESP32_RealBridge.ino) in Arduino IDE and keep its companion `.cpp`/`.h` files together. Use the pinned Arduino-ESP32 board package and [IDE settings](docs/ARDUINO_SETUP.md). Arduino CLI and CI provide optional automation around the same sketch.
+
 ![WeAct Studio ESP32-C6-MINI target development board](docs/assets/weact-esp32c6-mini.png)
 
 **Target board: WeAct Studio ESP32-C6-MINI.** Tested configuration: 4 MB flash, native USB, and RGB status on GPIO8. Product image supplied by the project owner; WeAct Studio branding belongs to its owner.

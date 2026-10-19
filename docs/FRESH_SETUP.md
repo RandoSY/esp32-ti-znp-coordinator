@@ -2,6 +2,8 @@
 
 This repository contains source, utilities and engineering evidence summaries. It does not contain the development machine's Zigbee network, installed applications, binaries or private backups. The Windows shortcuts operate an already configured local installation; cloning alone does not install Mosquitto or Zigbee2MQTT.
 
+**Firmware workflow: Arduino IDE.** Clone the repository or use GitHub's **Code -> Download ZIP**, then open `Arduino/TI_ZNP_ESP32_RealBridge/TI_ZNP_ESP32_RealBridge.ino` and follow [Arduino setup](ARDUINO_SETUP.md). Keep the companion source files in that sketch folder. Python is used by the optional utilities/tests below; Arduino CLI is optional automation for the same IDE-compatible sketch.
+
 ```text
 git clone https://github.com/RandoSY/esp32-ti-znp-coordinator.git
 cd esp32-ti-znp-coordinator
@@ -15,7 +17,7 @@ python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
 ```
 
-Install a C++17 compiler for native tests, and Arduino CLI plus the pinned **Arduino-ESP32 3.3.11** core for firmware. See [BUILDING](BUILDING.md) for complete commands, independent herdsman tests and exact dependencies. Build without flashing:
+Install a C++17 compiler for native tests. Firmware uses the pinned **Arduino-ESP32 3.3.11** board package in Arduino IDE; install Arduino CLI as well if using the optional command-line build below. See [BUILDING](BUILDING.md) for developer commands, independent herdsman tests and exact dependencies. Optional CLI build without flashing:
 
 ```text
 python tools/build_firmware.py --chip esp32c6 --transport native --flash-mb 4
