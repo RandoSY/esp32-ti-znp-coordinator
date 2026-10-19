@@ -23,6 +23,8 @@ The ESP32 emulates TI's serial host interface, not TI's CPU firmware or a partic
 
 The physical unit is documented with its product image, owner-reported sub-US$4 offer, AliExpress product/variant reference and observed Wing/TS0203 identity in [the test-sensor record](TEST_SENSOR.md). That record also distinguishes the earlier battery evidence, 63 LQI observations and final six-event corrected-build smoke test.
 
+An additional [live Zigbee2MQTT demonstration](ZIGBEE2MQTT_DEMO.md) includes the unchanged owner-supplied UI screenshot and four matching MQTT publications at 22:01:13-22:01:16 on 2026-10-18. It explains how the ESP32's TI ZNP personality connects actual Zigbee sensor traffic to the unmodified host's normal `zstack` driver, MQTT output and frontend.
+
 Private logs, the host database, network configuration, build metadata/hashes, and raw transcripts are kept under ignored `artifacts/` and `lab-zigbee2mqtt/`. Do not publish these unreviewed: startup/debug traces may contain network keys.
 
 ## Remaining acceptance work

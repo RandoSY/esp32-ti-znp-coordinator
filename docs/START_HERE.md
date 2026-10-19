@@ -147,6 +147,8 @@ mosquitto_sub -h 127.0.0.1 -p 1883 -t esp32_znp_lab/UZ-6D_Door
 
 Count three deliberate cycles, with a few seconds between transitions, and expect six alternating contact reports. Initial/cached or battery publications are separate from counted actions. Zero LQI alone is not a failed delivery: our [investigation](LQI_RSSI_Investigation.md) traced zeros to the SDK while contact reports still arrived. Battery updates may arrive later; cached battery values are not proof of fresh battery RF traffic.
 
+The [live Zigbee2MQTT demonstration](ZIGBEE2MQTT_DEMO.md) shows the expected real host result and explains how the ESP32's emulated TI ZNP dongle interface carries these reports to the normal `zstack` driver.
+
 **8. Shut down cleanly.**
 
 For the foreground setup above, press **Ctrl+C in Zigbee2MQTT first** and wait for its stopped/port-closed messages. Then stop your foreground MQTT watcher/broker with Ctrl+C if desired. These foreground commands create no service or boot-time startup. Service/container installations instead use their own normal stop/start controls. On our preconfigured Windows lab use the shortcuts below; its launcher owns the process arrangement. Exit Python utilities before starting the host again.

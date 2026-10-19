@@ -1,0 +1,56 @@
+{
+  "evidence_kind": "Owner-supplied live UI screenshot correlated with existing MQTT publication log; not a new controlled trial",
+  "time_basis": "Local Zigbee2MQTT log/UI timestamps, not calibrated RF timing",
+  "device_friendly_name": "UZ-6D_Door",
+  "mqtt_topic": "esp32_znp_lab/UZ-6D_Door",
+  "host_versions": {
+    "zigbee2mqtt": "2.14.2",
+    "herdsman": "10.10.0",
+    "mosquitto": "2.1.2"
+  },
+  "serial": {
+    "port": "COM17",
+    "adapter": "zstack",
+    "baudrate": 115200,
+    "rtscts": false
+  },
+  "screenshot": {
+    "path": "../assets/zigbee2mqtt-esp32c6-live.png",
+    "sha256": "a691d79f05e74c1d7cbec4dd6f415e89435fc0232657bb4cd004a539d1a0da73",
+    "width": 1496,
+    "height": 849,
+    "treatment": "Unchanged copy of owner-supplied screenshot"
+  },
+  "mqtt_publications": [
+    {
+      "local_time": "2026-10-18 22:01:13",
+      "contact": false,
+      "linkquality": 5,
+      "battery_state": 93
+    },
+    {
+      "local_time": "2026-10-18 22:01:14",
+      "contact": true,
+      "linkquality": 96,
+      "battery_state": 93
+    },
+    {
+      "local_time": "2026-10-18 22:01:15",
+      "contact": false,
+      "linkquality": 25,
+      "battery_state": 93
+    },
+    {
+      "local_time": "2026-10-18 22:01:16",
+      "contact": true,
+      "linkquality": 76,
+      "battery_state": 93
+    }
+  ],
+  "interpretation": {
+    "contact_false": "open",
+    "contact_true": "closed",
+    "battery_note": "93% is displayed/published state; these IAS events do not establish a new battery RF measurement",
+    "limits": "Screenshot does not independently establish raw SDK metadata, physical event-loss rate, complete TI coverage or certification."
+  }
+}

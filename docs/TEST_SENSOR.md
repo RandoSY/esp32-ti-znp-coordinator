@@ -25,6 +25,8 @@ UZ-6D / Wing TS0203 sensor
     -> Mosquitto MQTT -> contact/battery state
 ```
 
+See the [working Zigbee2MQTT demonstration](ZIGBEE2MQTT_DEMO.md) for the actual host screenshot, four matching MQTT publications and an explanation of the TI serial emulation between the sensor's real RF traffic and the unmodified `zstack` driver.
+
 | Item | Observed result |
 |---|---|
 | Coordinator | WeAct Studio ESP32-C6-MINI, 4 MB, native USB, Windows COM17 |

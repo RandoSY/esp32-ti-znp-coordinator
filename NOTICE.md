@@ -6,4 +6,6 @@ The board image at `docs/assets/weact-esp32c6-mini.png` was supplied by the proj
 
 The Tuya door/window sensor product image at `docs/assets/tuya-zigbee-door-window-sensor.png` was also supplied by the project owner. Third-party sensor images, Tuya/retailer branding and application marks shown in the image remain with their respective owners and are not relicensed under the project's MIT grant. The supplied purchasing reference is recorded for test reproducibility; no seller affiliation is asserted.
 
+The application screenshot at `docs/assets/zigbee2mqtt-esp32c6-live.png` was supplied by the project owner as a visual record of testing and is reproduced unchanged. Third-party software/interface marks shown in it remain with their owners; the project's MIT grant does not relicense those marks or imply their endorsement.
+
 TI protocol names and field descriptions identify the emulated interface. TI firmware, reference-document archives and proprietary vendor libraries are not redistributed here. Follow the linked official documentation and dependency licenses when obtaining them.

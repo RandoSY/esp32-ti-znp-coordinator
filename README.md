@@ -6,6 +6,20 @@
 
 A WeAct ESP32-C6 presents a CC2652P-style TI ZNP serial interface to the unmodified Zigbee2MQTT `zstack` driver, while its own native Zigbee radio handles real devices. ESP32-H2 is also a build target.
 
+**The central result: Zigbee2MQTT operates through our emulated TI dongle.** A real Tuya door/window sensor pairs with the ESP32-C6. Our firmware translates the host's TI ZNP requests into Espressif Zigbee operations and returns TI-format events, including incoming sensor data. Unmodified Zigbee2MQTT uses its normal `zstack` driver, interviews the device, converts IAS reports into contact states, publishes MQTT and updates its web interface.
+
+```mermaid
+flowchart LR
+    sensor["Tuya UZ-6D / Wing TS0203"] <-->|"Real Zigbee RF"| esp["ESP32-C6 native Zigbee stack"]
+    esp <-->|"Emulated TI ZNP over USB serial"| z2m["Unmodified Zigbee2MQTT: zstack"]
+    z2m --> mqtt["Mosquitto MQTT"]
+    z2m --> ui["Zigbee2MQTT web interface"]
+```
+
+![Live Zigbee2MQTT showing UZ-6D contact reports through the ESP32-C6 TI ZNP dongle emulator](docs/assets/zigbee2mqtt-esp32c6-live.png)
+
+**Working demonstration, 2026-10-18:** this owner-supplied screenshot shows `UZ-6D_Door` changing between open and closed. All four displayed activity events at 22:01:13-22:01:16 match the recorded MQTT publications, with LQI 5, 96, 25 and 76. Together with the recorded firmware/host tests, this demonstrates the real RF-to-ZNP-to-application path. See [how the emulation works and the matched evidence](docs/ZIGBEE2MQTT_DEMO.md). The screenshot is an unchanged copy of the supplied image.
+
 **Arduino IDE by design.** The firmware is a standard multi-file Arduino sketch, intentionally organized for simplicity and reuse across compatible ESP32-C6/H2 boards. Open [TI_ZNP_ESP32_RealBridge.ino](Arduino/TI_ZNP_ESP32_RealBridge/TI_ZNP_ESP32_RealBridge.ino) in Arduino IDE and keep its companion `.cpp`/`.h` files together. Use the pinned Arduino-ESP32 board package and [IDE settings](docs/ARDUINO_SETUP.md). Arduino CLI and CI provide optional automation around the same sketch.
 
 ![WeAct Studio ESP32-C6-MINI target development board](docs/assets/weact-esp32c6-mini.png)
@@ -35,6 +49,6 @@ The LQI investigation correlated **63 live SDK/bridge/encoded/MQTT values**, inc
 - [Serial compatibility](docs/SERIAL_COMPATIBILITY.md) and [RF evidence](docs/RF_ACCEPTANCE.md)
 - [Source architecture](docs/ARCHITECTURE.md)
 
-The source separates framing, ZNP dispatch, durable virtual TI NV, radio/ZDO operations, and RGB status. Generated binaries, private network keys, databases, logs, personal screenshots, reference archives, and third-party installations are excluded by `.gitignore`.
+The source separates framing, ZNP dispatch, durable virtual TI NV, radio/ZDO operations, and RGB status. Generated binaries, private network keys, databases, logs, unreviewed personal screenshots, reference archives, and third-party installations are excluded by `.gitignore`. Selected owner-supplied product/test images are included under `docs/assets`.
 
 Project-authored source and documentation use the [MIT license](LICENSE). ESP-IDF/Arduino, Espressif Zigbee libraries, Zigbee2MQTT, Mosquitto and other separately installed dependencies retain their own licenses. TI reference documents and vendor libraries are not redistributed here. See [contribution guidance](CONTRIBUTING.md).
